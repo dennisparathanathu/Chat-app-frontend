@@ -1,0 +1,46 @@
+<br>
+<br>
+<div *ngIf="!submitted">
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Add New Contact</mat-card-title>
+      </mat-card-header>
+ 
+      <form class="example-form">
+  
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput name = "name" placeholder="name" [(ngModel)]="user.name">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nickname" name="nickname" [(ngModel)]="user.nickname">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter PhoneNumber" name="phonenumber" [(ngModel)]="user.phonenumber">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Date of Birth" name="dob" [(ngModel)]="user.dob">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Language" name="language" [(ngModel)]="user.language">
+          </mat-form-field>
+
+  
+        </mat-card-content>
+  
+        <button  mat-stroked-button color="accent" (click)="addcontact()" class="btn-block">Add New Contact</button>
+  
+      </form>
+  
+    </mat-card>
+  </div>
+ 
+  </div>
+  <div *ngIf="submitted">
+    <app-chat></app-chat>
+  
+  </div>

@@ -1,0 +1,20 @@
+<div class="chat-list-box">
+	<div class="head-box">
+	  <ul class="list-inline text-left d-inline-block float-left">
+		<a routerLink = "/updateprofile" ><li> <img src="https://i.ibb.co/fCzfFJw/person.jpg" alt="" width="40px"> </li> <span>{{ currentUser.username }}</span></a>
+	  </ul>
+	   <ul class="flat-icon list-inline text-right d-inline-block float-right">
+		<li> <a href="#"> <i class="fas fa-search"></i> </a> </li> 
+		<li> <a href="#"> <i class="fas fa-ellipsis-v"></i> </a> </li> 
+	  </ul>
+	  </div>
+  
+	  <div class="chat-person-list">
+		<ul class="list-inline"> 
+		  <li *ngFor = "let user of users"> <a [routerLink] = "['viewprofile',user.id]" class="flip"> <img src="https://i.ibb.co/6JpcfrK/p4.png" alt=""> <span>{{ user.username }}</span> <span class="chat-time">12:00 Am</span> </a> </li> 
+		  
+		  
+		</ul>
+	  </div>
+	  
+	</div>

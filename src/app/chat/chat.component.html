@@ -1,0 +1,32 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<br>
+<br>
+<section>
+	  <div class="container">
+	   <div class="row">
+	     <div class="col-md-3">
+			 <app-newsidebar
+			 [currentUser]="currentUser"
+			 [users] = "users"></app-newsidebar>
+		  
+		 </div> <!-- col-md-4 closed -->
+		 
+		 <div class="col-md-6">
+			 <app-chatarea></app-chatarea>
+
+		 </div>
+		 <div class="col-md-3">
+			 <app-sideprofile></app-sideprofile>
+			
+
+		</div>
+		 
+	   </div>
+	  </div>
+	</section>
+	
