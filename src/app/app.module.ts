@@ -18,6 +18,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ChatareaComponent } from './chat/chatarea/chatarea.component';
 import { SideprofileComponent } from './chat/sideprofile/sideprofile.component';
 import { NewsidebarComponent } from './chat/newsidebar/newsidebar.component';
+import { DummycmpComponent } from './components/dummycmp/dummycmp.component';
 
 
 
@@ -31,7 +32,8 @@ import { NewsidebarComponent } from './chat/newsidebar/newsidebar.component';
     ProfileComponent,
     ChatareaComponent,
     SideprofileComponent,
-    NewsidebarComponent
+    NewsidebarComponent,
+    DummycmpComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { AuthService } from '../_services/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router,ParamMap } from '@angular/router';
 import { ChatareaComponent } from '../chat/chatarea/chatarea.component';
 import { NewsidebarComponent } from '../chat/newsidebar/newsidebar.component';
 import { SideprofileComponent } from '../chat/sideprofile/sideprofile.component';
+
 
 
 @Component({
@@ -16,8 +17,10 @@ export class ChatComponent implements OnInit {
 
   currentUser: any;
   users: any;
+  id:any;
+  singlesideuser: any;
 
-  constructor(private token:TokenStorageService, private auth:AuthService,private router: Router) { }
+  constructor(private route: ActivatedRoute,private token:TokenStorageService, private auth:AuthService,private router: Router) { }
 
   ngOnInit(): void {
   
@@ -31,6 +34,15 @@ export class ChatComponent implements OnInit {
       this.users = response;
 
     });
+    this.route.paramMap.subscribe((params : ParamMap)=> {  
+      this.id = +params.get('id');  
+      console.log("fromchat new Id is :", this.id); 
+      this.auth.getsingleusers(this.id).subscribe(res =>{
+        this.singlesideuser = res;
+        console.log(this.singlesideuser)
+      })      
+}); 
+
 
 
   }

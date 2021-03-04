@@ -17,16 +17,22 @@
 		 </div> <!-- col-md-4 closed -->
 		 
 		 <div class="col-md-6">
-			 <app-chatarea></app-chatarea>
+			 <app-chatarea
+			 [singlesideuser]="singlesideuser"
+			 ></app-chatarea>
 
 		 </div>
 		 <div class="col-md-3">
-			 <app-sideprofile></app-sideprofile>
+			 <app-sideprofile
+			 [singlesideuser]="singlesideuser"
+			 ></app-sideprofile>
 			
 
 		</div>
 		 
 	   </div>
 	  </div>
+	  
 	</section>
+	<router-outlet></router-outlet>
 	

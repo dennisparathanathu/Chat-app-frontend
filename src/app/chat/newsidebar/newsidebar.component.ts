@@ -1,4 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AuthService } from '../../_services/auth.service';
+
 
 
 
@@ -10,11 +13,13 @@ import { Component, OnInit,Input } from '@angular/core';
 export class NewsidebarComponent implements OnInit {
   
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,private auth: AuthService) { }
   @Input() currentUser:any;
   @Input() users:any;
 
   ngOnInit(): void {
+
+
   }
 
 }

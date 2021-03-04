@@ -3,7 +3,7 @@
 	
 	  <ul class="msg-box list-inline text-left d-inline-block float-left">
 	   <li> <i class="fas fa-arrow-left" id="back"></i> </li> 
-		 <li> <img src="https://i.ibb.co/fCzfFJw/person.jpg" alt="" width="40px"> <span> Naveen mandwariya </span> <br> <small class="timee"> 12:45 Pm </small> </li> 
+		 <li> <img src="https://i.ibb.co/fCzfFJw/person.jpg" alt="" width="40px"> <span> {{ singlesideuser.username }} </span> <br> <small class="timee"> 12:45 Pm </small> </li> 
 	  </ul>
 	  
 	  <ul class="flat-icon list-inline text-right d-inline-block float-right">
@@ -76,7 +76,7 @@
   
    <div class="send-message">
 	 <form action="" method="">
-	  <textarea cols="10" rows="2" class="form-control" placeholder="Type your message here ..."> </textarea>
+	  <textarea cols="10" rows="2" class="form-control" [(ngModel)]="msg.message" placeholder="Type your message here ..."> </textarea>
 	   <ul class="list-inline"> 
 		<li>
 		 <a href="#" id="attach">  <i class="fas fa-paperclip"></i> </a> 
@@ -91,7 +91,7 @@
 			 </ul>
 		   </div> 
 		 </li>	  
-		 <li> <i class="fas fa-paper-plane"></i> </li>
+		 <li> <button (click)="send()"><i class="fas fa-paper-plane" ></i></button> </li>
 	   </ul>
 	 </form>
    </div>

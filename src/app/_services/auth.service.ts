@@ -36,6 +36,10 @@ export class AuthService {
     return this.http.get(URL +'getsingleusers/'+id);
 
   }
+  message(data): Observable<any> {
+    return this.http.post(URL +'message/',{data},httpOptions);
+
+  }
   
 
 
