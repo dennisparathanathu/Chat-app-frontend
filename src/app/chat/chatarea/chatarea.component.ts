@@ -18,23 +18,34 @@ export class ChatareaComponent implements OnInit {
   constructor(private auth:AuthService) { }
   @Input() singlesideuser:any;
   @Input() currentUser:any;
+  @Input() messages:any;
  
   ngOnInit(): void {
+
   }
   send(){
     const data={
       message:this.msg.message,
-      senttby:this.currentUser.id,
+      sentby:this.currentUser.id,
       sentto:this.singlesideuser.id
 
     }
     this.auth.message(data).subscribe(res=>{
+      console.log(data)
       console.log(res);
-      alert(res);
+      alert("message sent");
     },error =>{
       alert(error);
       console.log(error);
     });
+
+  }
+  getallmsg(){
+    this.auth.getmessages(this.currentUser.id,this.singlesideuser.id).subscribe(res =>{
+      console.log(res);
+      this.messages = res
+
+  });
 
   }
 

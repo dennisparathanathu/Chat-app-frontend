@@ -19,6 +19,7 @@ export class ChatComponent implements OnInit {
   users: any;
   id:any;
   singlesideuser: any;
+  messages:any;
 
   constructor(private route: ActivatedRoute,private token:TokenStorageService, private auth:AuthService,private router: Router) { }
 
@@ -41,7 +42,11 @@ export class ChatComponent implements OnInit {
         this.singlesideuser = res;
         console.log(this.singlesideuser)
       })      
-}); 
+    });   
+    this.auth.getmessages(this.currentUser.id,this.singlesideuser.id).subscribe(res =>{
+      console.log(res);
+      this.messages = res
+    });
 
 
 

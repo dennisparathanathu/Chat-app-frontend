@@ -26,15 +26,16 @@
    </div>
    
    <div class="msg_history">
-   <div class="incoming_msg">
+   <div class="incoming_msg" *ngFor="let msg of messages">
 	 <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
 	 <div class="received_msg">
 	   <div class="received_withd_msg">
-		 <p>Hi, How are you ?</p>
-		 <span class="time_date"> 11:01 AM    |    June 9</span></div>
+		 <p>{{msg.message}}</p>
+		 <span class="time_date">{{msg.time}}</span></div>
 	 </div>
    </div>
-   <div class="outgoing_msg">
+   </div>
+   <!--<div class="outgoing_msg">
 	 <div class="sent_msg">
 	   <p>Hello, i am fine thankyou, what about you ?</p>
 	   <span class="time_date"> 11:01 AM    |    June 9</span> </div>
@@ -60,7 +61,7 @@
 		 <span class="time_date"> 11:01 AM    |    Today</span></div>
 	 </div>
    </div>
- </div>
+ </div> -->
    <br>
    <br>
    <br>
@@ -75,11 +76,11 @@
    
   
    <div class="send-message">
-	 <form action="" method="">
-	  <textarea cols="10" rows="2" class="form-control" [(ngModel)]="msg.message" placeholder="Type your message here ..."> </textarea>
+	 <form>
+	  <textarea cols="10" rows="2" name="message" class="form-control" [(ngModel)]="msg.message" placeholder="Type your message here ..."> </textarea>
 	   <ul class="list-inline"> 
 		<li>
-		 <a href="#" id="attach">  <i class="fas fa-paperclip"></i> </a> 
+		 <button (click)="getallmsg()"><a href="#" id="attach">  <i class="fas fa-paperclip"></i> </a> </button>
 		   <div class="attachement">
 			 <ul class="list-inline"> 
 			  <li> <a href="#"> <i class="fas fa-file"></i> </a> </li> 
@@ -91,7 +92,7 @@
 			 </ul>
 		   </div> 
 		 </li>	  
-		 <li> <button (click)="send()"><i class="fas fa-paper-plane" ></i></button> </li>
+		 <button (click)="send()" ><i class="fas fa-paper-plane" ></i></button>
 	   </ul>
 	 </form>
    </div>

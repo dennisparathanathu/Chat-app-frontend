@@ -40,6 +40,15 @@ export class AuthService {
     return this.http.post(URL +'message/',{data},httpOptions);
 
   }
+  additionaluserdetails(data): Observable<any> {
+    return this.http.post(URL +'profileupdate',{data},httpOptions);
+
+  }
+  getmessages(sid,rid): Observable<any> {
+    return this.http.get(URL +'getmessages/'+sid+'/'+rid);
+
+  }
+
   
 
 
