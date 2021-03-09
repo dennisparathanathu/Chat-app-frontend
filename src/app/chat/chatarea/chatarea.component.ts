@@ -22,6 +22,7 @@ export class ChatareaComponent implements OnInit {
  
   ngOnInit(): void {
 
+
   }
   send(){
     const data={
@@ -34,19 +35,16 @@ export class ChatareaComponent implements OnInit {
       console.log(data)
       console.log(res);
       alert("message sent");
+      this.reloadPage();
     },error =>{
       alert(error);
       console.log(error);
     });
 
   }
-  getallmsg(){
-    this.auth.getmessages(this.currentUser.id,this.singlesideuser.id).subscribe(res =>{
-      console.log(res);
-      this.messages = res
-
-  });
-
+  reloadPage(): void {
+    window.location.reload();
   }
+
 
 }

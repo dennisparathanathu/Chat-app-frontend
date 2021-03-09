@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./sideprofile.component.css']
 })
 export class SideprofileComponent implements OnInit {
-
   constructor() {}
-  @Input() singlesideuser:any
-
+  @Input() singlesideuser:any;
+  @Input() singlesideuserdetails:any;
   ngOnInit(): void {
+ 
   }
 
 }

@@ -15,23 +15,28 @@ export class ProfileComponent implements OnInit {
   profile :{
     nickname:string;
     gender:string;
-    phonenumber:string;
+    phonenumber:Number;
     dob:string;
     location:string;
     language:string;
-    image:File | null;
+    image:string;
 
   }
+  photofilename:any;
+  photofilepath:any;
+  photoUrl:'http://localhost:8000/media/'
 
   constructor(private route: ActivatedRoute,private auth: AuthService,private router: Router) { 
+    
+
     this.profile = {
       nickname:'',
       gender:'',
-      phonenumber:'',
+      phonenumber:null,
       dob:'',
       location:'',
       language:'',
-      image:null
+      image:''
 
     };
   }
@@ -43,23 +48,37 @@ export class ProfileComponent implements OnInit {
     },error => console.log(error));
  
   }
+  uploadphoto(event: any){
+    var file = event.target.files[0];
+    const formdata:FormData =new FormData();
+    formdata.append('uploadedFile',file,file.name);
+
+    this.auth.uploadphoto(formdata).subscribe((data:any)=>{
+      this.photofilename=data.toString();
+      this.photofilepath = this.photoUrl+this.photofilename;
+      this.profile.image = this.photofilepath;
+      console.log(this.photofilename)
+      console.log(this.photofilepath)
+    })
+
+
+  }
   save(){
     const data ={
       nickname:this.profile.nickname,
       gender:this.profile.gender,
-      phonenumber:this.profile.gender,
+      phonenumber:this.profile.phonenumber,
       dob:this.profile.dob,
       location:this.profile.location,
       Language:this.profile.language,
-      image:this.profile.image,
+      image:this.photofilepath,
       user:this.currentUser.id
       
     }
     console.log(data);
     this.auth.additionaluserdetails(data).subscribe(res =>{
       console.log(res);
-      alert(res);
-      this.router.navigate(['/chat']);
+      alert(res.mag);
 
     },error =>{
       alert(error);

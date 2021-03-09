@@ -20,6 +20,7 @@ export class ChatComponent implements OnInit {
   id:any;
   singlesideuser: any;
   messages:any;
+  singlesideuserdetails:any;
 
   constructor(private route: ActivatedRoute,private token:TokenStorageService, private auth:AuthService,private router: Router) { }
 
@@ -40,13 +41,19 @@ export class ChatComponent implements OnInit {
       console.log("fromchat new Id is :", this.id); 
       this.auth.getsingleusers(this.id).subscribe(res =>{
         this.singlesideuser = res;
-        console.log(this.singlesideuser)
-      })      
+        this.auth.getmessages(this.currentUser.id,this.singlesideuser.id).subscribe(res =>{
+          console.log(res);
+          this.messages = res
+        }); 
+        this.auth.getsingleusersdetails(this.id).subscribe(res =>{
+          this.singlesideuserdetails = res;
+          console.log(res);
+        }); 
+      });
+      
+        
     });   
-    this.auth.getmessages(this.currentUser.id,this.singlesideuser.id).subscribe(res =>{
-      console.log(res);
-      this.messages = res
-    });
+ 
 
 
 

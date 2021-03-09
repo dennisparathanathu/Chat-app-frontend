@@ -36,6 +36,10 @@ export class AuthService {
     return this.http.get(URL +'getsingleusers/'+id);
 
   }
+  getsingleusersdetails(id): Observable<any> {
+    return this.http.get(URL +'getsingleusersdetails/'+id);
+
+  }
   message(data): Observable<any> {
     return this.http.post(URL +'message/',{data},httpOptions);
 
@@ -47,6 +51,9 @@ export class AuthService {
   getmessages(sid,rid): Observable<any> {
     return this.http.get(URL +'getmessages/'+sid+'/'+rid);
 
+  }
+  uploadphoto(formData): Observable<any>{
+    return this.http.post(URL +'uploadphoto/',formData)
   }
 
   

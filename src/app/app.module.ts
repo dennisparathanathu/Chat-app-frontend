@@ -19,7 +19,7 @@ import { ChatareaComponent } from './chat/chatarea/chatarea.component';
 import { SideprofileComponent } from './chat/sideprofile/sideprofile.component';
 import { NewsidebarComponent } from './chat/newsidebar/newsidebar.component';
 import { DummycmpComponent } from './components/dummycmp/dummycmp.component';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -43,7 +43,8 @@ import { DummycmpComponent } from './components/dummycmp/dummycmp.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
 
   ],
   providers: [authInterceptorProviders],

@@ -13,7 +13,7 @@ import { from } from 'rxjs';
 
 
 const routes: Routes = [
-  
+ 
   {path: 'register', component:RegisterComponent},
   {path: 'signin',component:SigninComponent},
   {path: 'updateprofile',component:ProfileComponent},
